@@ -1,0 +1,44 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background: url("../img/Cloud.png") no-repeat center center fixed #034667;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cloud-icon {
+    color: azure;
+}
+
+.center-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30em;
+    height: 18em;
+    margin-top: -13em;
+    margin-left: -15em;
+}
+
+.center-text {
+    text-align: center;
+    font-size: 4em;
+    margin: 0px;
+    padding: 0px;
+    font-weight: 600;
+}
+
+.fa-3 {
+    font-size: 4em;
+}
+
+.temp {
+    position: absolute;
+    top: 71%;
+    left: 28%;
+    width: 42%;
+    color: #fff;
+}
+
+.city {
+    font-size: 2em;
+}
