@@ -1,16 +1,13 @@
 $(document).ready(function () {
     
-    $.getJSON("http://jsonip.com/?callback=?", function (data) {
+    $.getJSON("https://jsonip.com/?callback=?", function (data) {
         var geo = {};
         var ip = data.ip.split(",");
-        $.getJSON("http://ip-api.com/json/" + ip[0] + "?callback=?", function (location) {
-            geo.lat = location.lat;
-            geo.lon = location.lon;
-            var apiKey = "b7676965c2f735738255427379b7e049";
-            $.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=" + geo.lat + "&lon=" + geo.lon + "&appid=" + apiKey, function (data) {
-                $("#city-name").html(data.name);
-                var cel =Math.round(data.main.temp - 273);
-                $("#cel-value").html(cel+" °C");
+        $.getJSON("https://freegeoip.net/json/" + ip[0] + "?callback=?", function (location) {
+            var apiKey = "84ee003417044db6b72174247170503";
+            $.getJSON("https://api.worldweatheronline.com/premium/v1/past-weather.ashx?key=" + apiKey + "&q=" + location.ip + "&format=json", function (w) {
+                $("#city-name").html(location.city);
+                $("#cel-value").html(w.data.weather[0].hourly[w.data.weather[0].hourly.length - 1].tempC + " °C");
             });
         });
     });
